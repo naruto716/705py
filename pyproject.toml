@@ -1,0 +1,13 @@
+[project]
+name = "705py"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "getstream-plugins-deepgram>=0.1.1",
+    "getstream[webrtc]==2.3.0a5",
+    "python-dotenv>=1.1.1",
+    "certifi>=2023.11.17",
+    "pip-system-certs>=4.0",
+]
