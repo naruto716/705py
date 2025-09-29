@@ -31,7 +31,7 @@ def _ensure_env(var_name: str) -> str:
 def _build_join_url(base_url: str, call_id: str, api_key: str, user_token: str) -> str:
     base = base_url.rstrip("/")
     query = urlencode({"api_key": api_key, "token": user_token, "skip_lobby": "true"})
-    return f"{base}/join/{call_id}?{query}"
+    return f"{base}"
 
 
 def _display_join_url(url: str) -> None:
