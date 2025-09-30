@@ -1,3 +1,9 @@
+# The new function is to deal with the fragment text
+
+It update the main.py by generate a jsonl document to record the text and then through consolidate.py(nature language process) to get the complete paragraph
+
+
+
 # Stream Python AI + Deepgram Quickstart
 
 This project follows Stream's Python AI quickstart but swaps the OpenAI realtime integration for the Deepgram speech-to-text plugin.
