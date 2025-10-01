@@ -44,3 +44,7 @@ The script will:
 Press `Ctrl+C` to end the session. The temporary users are cleaned up automatically.
 
 Set `LOG_LEVEL=DEBUG` in your environment to see partial transcript logs.
+
+```
+uv run python consolidate.py --file transcripts/2025-09-30-abc123.jsonl --from-start --min-duration 5 --min-chars 30
+```

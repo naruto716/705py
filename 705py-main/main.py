@@ -101,7 +101,7 @@ async def _run_call(client: Stream, *, base_url: str) -> None:
         )
         user_token = client.create_token(user_id, expiration=3600)
 
-        call_id = 'abc123'
+        call_id = 'meet1'
         call = client.video.call("default", call_id)
         call.get_or_create(data={"created_by_id": bot_user_id})
 

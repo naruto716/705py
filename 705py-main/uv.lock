@@ -24,6 +24,7 @@ dependencies = [
     { name = "sentence-transformers" },
     { name = "snownlp" },
     { name = "vadersentiment" },
+    { name = "websockets" },
 ]
 
 [package.metadata]
@@ -41,6 +42,7 @@ requires-dist = [
     { name = "sentence-transformers", specifier = ">=5.1.1" },
     { name = "snownlp", specifier = ">=0.12.3" },
     { name = "vadersentiment", specifier = ">=3.3.2" },
+    { name = "websockets", specifier = ">=15.0.1" },
 ]
 
 [[package]]
