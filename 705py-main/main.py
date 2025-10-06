@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import asyncio
 import logging
 import os
@@ -89,7 +90,7 @@ class JsonlSink:
 # -----------------------------------------------------------------
 
 
-async def _run_call(client: Stream, *, base_url: str) -> None:
+async def _run_call(client: Stream, *, base_url: str, call_id: str) -> None:
     user_id = f"user-{uuid4()}"
     bot_user_id = f"deepgram-stt-bot-{uuid4()}"
     stt: Optional[DeepgramSTT] = None
@@ -101,7 +102,6 @@ async def _run_call(client: Stream, *, base_url: str) -> None:
         )
         user_token = client.create_token(user_id, expiration=3600)
 
-        call_id = 'meet1'
         call = client.video.call("default", call_id)
         call.get_or_create(data={"created_by_id": bot_user_id})
 
@@ -170,6 +170,10 @@ async def _run_call(client: Stream, *, base_url: str) -> None:
 
 
 async def async_main() -> None:
+    parser = argparse.ArgumentParser(description="Stream + Deepgram real-time transcription")
+    parser.add_argument("--call-id", type=str, default="default-room", help="Call/room ID to join")
+    args = parser.parse_args()
+
     logging.basicConfig(
         level=os.getenv("LOG_LEVEL", "INFO").upper(),
         format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
@@ -184,7 +188,7 @@ async def async_main() -> None:
     client = Stream.from_env()
 
     try:
-        await _run_call(client, base_url=base_url)
+        await _run_call(client, base_url=base_url, call_id=args.call_id)
     except Exception:
         LOGGER.exception("Failed to run Deepgram quickstart session")
         raise
