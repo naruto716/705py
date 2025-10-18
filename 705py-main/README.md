@@ -32,7 +32,7 @@ Real-time speech-to-text with NLP consolidation and WebSocket streaming.
 uv run python main.py
 
 # Specify room/call ID
-uv run python main.py --call-id my-meeting-room
+uv run python main.py --call-id topic-a-ai
 ```
 
 Saves transcripts to `transcripts/YYYY-MM-DD-<call_id>.jsonl`
